@@ -1,0 +1,27 @@
+spring:
+    profiles: dev
+    datasource:
+       driverClassName: com.mysql.jdbc.Driver
+       url: jdbc:mysql://localhost:3306/auth?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+       username: root
+       password: password
+       continue-on-error: true
+    jpa:
+       show-sql: true
+       hibernate.ddl-auto: update
+       hibernate.naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy   
+       properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    maxActive: 100
+    maxIdle: 100
+    minIdle: 10
+    initialSize: 0
+
+server:
+   port: 9091
+   
+logging:
+  level.*: info
+  file: ${root.dir}/je_company.log
+
+#security.user.password: password
+security.oauth2.resource.id: oauth2_id
